@@ -1,8 +1,8 @@
+import { errInvalidInput, errNotFound } from './globals';
+
 type User = {
   englishName: string;
   chineseName: string;
-  age?: number;
-  specialComments?: string[];
 };
 
 const users: User[] = [
@@ -35,7 +35,7 @@ const isValidInput = (input: string): boolean => {
 
 export const matchUser = (input: string): User | string => {
   if (!isValidInput(input)) {
-    return 'Invalid input';
+    return errInvalidInput;
   }
 
   const formattedInput = input.toLowerCase().replace(/\s+/g, '');
@@ -61,5 +61,5 @@ export const matchUser = (input: string): User | string => {
     }
   }
 
-  return 'No match found';
+  return errNotFound;
 };

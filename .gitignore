@@ -4,3 +4,4 @@ logs/
 .vscode/*
 .history
 function.zip
+dist/
